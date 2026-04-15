@@ -1,0 +1,25 @@
+class Solution {
+    public boolean isPalindrome(String s) {
+        int left = 0, right = s.length() -1;
+        while (left < right) {
+            if (!alphaNumeric(s.charAt(left))) {
+                left++;
+                continue;
+            }
+            if (!alphaNumeric(s.charAt(right))) {
+                right--; 
+                continue;
+            }
+            if (Character.toLowerCase(s.charAt(left)) != Character.toLowerCase(s.charAt(right))) {
+                return false;
+            }
+            left++;
+            right--;
+        }
+        return true;
+    }
+
+    public boolean alphaNumeric(char c) {
+        return (c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z') || (c >= '0' && c <= '9');
+    }
+}
